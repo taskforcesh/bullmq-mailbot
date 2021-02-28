@@ -6,4 +6,8 @@ export default {
     port: parseInt(process.env.REDIS_PORT || "6379"),
   },
   region: process.env.AWS_DEFAULT_REGION || "us-west-2",
+  limiter: {
+    max: parseInt(process.env.MAX_LIMIT || "1"),
+    duration: parseInt(process.env.DURATION_LIMIT || "1000")
+  }
 };
