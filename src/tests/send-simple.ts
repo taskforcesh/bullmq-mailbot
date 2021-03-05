@@ -1,8 +1,8 @@
-import { Mail } from "../mail.interface";
+import { MailJob } from "../mail-job.interface";
 import { Queue } from "bullmq";
 import config from "../config";
 
-const queue = new Queue<Mail>(config.queueName, {
+const queue = new Queue<MailJob>(config.queueName, {
   connection: config.connection,
 });
 
@@ -12,10 +12,12 @@ console.log(args);
 
 (async () => {
   await queue.add("send-simple", {
-    from: "manast@taskforce.sh",
-    subject: "This is a simple test",
-    text: "An email sent using BullMQ",
-    to: args[0],
+    mailOpts: {
+      from: "manast@taskforce.sh",
+      subject: "This is a simple test",
+      text: "An email sent using BullMQ",
+      to: args[0],
+    },
   });
 
   console.log(`Enqueued an email sending to ${args[0]}`);

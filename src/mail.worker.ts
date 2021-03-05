@@ -1,7 +1,8 @@
 import { Worker, QueueScheduler } from "bullmq";
 import config from "./config";
+import { MailJob } from "./mail-job.interface";
 
-export const worker = new Worker(
+export const worker = new Worker<MailJob>(
   config.queueName,
   __dirname + "/mail.proccessor.js",
   {

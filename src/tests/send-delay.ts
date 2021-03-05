@@ -15,10 +15,12 @@ const ONE_WEEK = 7 * ONE__DAY;
 client.enqueue(
   "We are here to help!",
   {
-    from: "manast@taskforce.sh",
-    to: args[0],
-    subject: "Your first week with BullMq",
-    text: "This is an engagement email!",
+    mailOpts: {
+      from: "manast@taskforce.sh",
+      to: args[0],
+      subject: "Your first week with BullMq",
+      text: "This is an engagement email!",
+    },
   },
-  { delay: ONE_WEEK },
+  { delay: ONE_WEEK }
 );

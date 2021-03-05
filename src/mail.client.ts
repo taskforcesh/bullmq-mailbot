@@ -1,12 +1,12 @@
 import { JobsOptions, Queue, QueueOptions } from "bullmq";
-import { Mail } from "./mail.interface";
+import { MailJob } from "./mail-job.interface";
 import config from "./config";
 
 export class MailbotClient {
   private queue: Queue;
 
   constructor(opts: QueueOptions) {
-    this.queue = new Queue<Mail>(config.queueName, {
+    this.queue = new Queue<MailJob>(config.queueName, {
       defaultJobOptions: {
         attempts: 5,
         backoff: { type: "exponential", delay: 3000 },
@@ -15,10 +15,10 @@ export class MailbotClient {
     });
   }
 
-  async enqueue(jobName: string, mail: Mail, jobOpts?: JobsOptions) {
+  async enqueue(jobName: string, mail: MailJob, jobOpts?: JobsOptions) {
     await this.queue.add(jobName, mail);
 
-    console.log(`Enqueued an email sending to ${mail.to}`);
+    console.log(`Enqueued an email sending to ${mail.mailOpts.to}`);
   }
 
   close() {

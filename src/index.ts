@@ -2,7 +2,7 @@ import { worker } from "./mail.worker";
 
 worker.on("completed", (job) =>
   console.log(
-    `Completed job ${job.id} successfully, sent email to ${job.data.to}`
+    `Completed job ${job.id} successfully, sent email to ${job.data.mailOpts.to}`
   )
 );
 worker.on("failed", (job, err) =>
