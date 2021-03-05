@@ -8,8 +8,6 @@ const queue = new Queue<MailJob>(config.queueName, {
 
 const args = process.argv.slice(2);
 
-console.log(args);
-
 (async () => {
   await queue.add("send-simple", {
     mailOpts: {
