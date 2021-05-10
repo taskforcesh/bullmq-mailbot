@@ -1,9 +1,9 @@
 {
   "name": "mailbot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BullMQ Tutorial - Sending emails",
   "main": "index.js",
-  "author": "Manuel Astudillo <manast@taskforce.sh",
+  "author": "Manuel Astudillo <manast@taskforce.sh>",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.852.0",
@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node dist/index.js"
+    "start": "tsc && node dist/index.js",
+    "test": "node dist/tests/send-simple.js"
   }
 }
