@@ -19,4 +19,7 @@ console.log(args);
   });
 
   console.log(`Enqueued an email sending to ${args[0]}`);
+
+  // Exit for the next test run
+  process.exit(0);
 })();
