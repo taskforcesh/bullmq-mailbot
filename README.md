@@ -3,8 +3,8 @@
 # BullMQ Tutorial - Mailbot
 
 This tutorial shows how to easily create a bot for sending emails.
-The tutorial is divided in several parts, every part is located on a different branch so
-that you can navigate the code easily mathing the tutorial text.
+The tutorial is divided into several parts, every part is located on a different branch so
+that you can navigate the code easily matching the tutorial text.
 
 
 # Install
